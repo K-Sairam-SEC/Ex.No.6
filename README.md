@@ -2,69 +2,91 @@
 
 # Date: 21/10/2025
 # Register no. 25000527
-# Aim: Write and implement Python code that integrates with multiple AI tools to automate the task of interacting with APIs, comparing outputs, and generating actionable insights with Multiple AI Tools
+# Aim:
+To write and implement Python code that integrates with multiple AI tools to automate the task of interacting with APIs, comparing outputs, and generating actionable insights using prompt-based programming.
+________________________________________
+# AI Tools Required:
+•	OpenAI GPT-4 / ChatGPT – for prompt-based code generation and summarization.
+•	Google Gemini / Copilot / Claude – for cross-verification and code refinement.
+•	External APIs – e.g., OpenWeatherMap or WeatherAPI (for demonstration).
+•	Python Libraries: requests, json, pandas (optional).
+________________________________________
+Explanation:
+This experiment demonstrates how prompt engineering and AI-assisted coding can help automate real-world programming tasks such as:
+•	Fetching and comparing data from multiple APIs.
+•	Generating Python code via LLMs.
+•	Extracting actionable insights automatically.
+Students act as AI-assisted programmers, using prompts to instruct the AI tools to generate code for a specific use case and analyze the results.
+________________________________________
+# Procedure:
+Step 1: Define Scenario
+Use Case – Weather Data Comparison and Insight Generation
+The application fetches current weather data (temperature, humidity, and condition) from two different APIs and compares their outputs.
+________________________________________
+Step 2: Design Prompts
+1.	Prompt 1 – Code Generation:
+“Write Python code to fetch current weather data (temperature, humidity, condition) from OpenWeatherMap and WeatherAPI using their REST APIs.”
+2.	Prompt 2 – Data Comparison:
+“Modify the code to compare both API outputs and print which API gives the higher temperature.”
+3.	Prompt 3 – Insight Generation:
+“Based on the comparison, generate a short summary explaining any difference and suggest which API data seems more reliable.”
+Step 3: Python Implementation Example
+import requests
 
-# AI Tools Required
-•	OpenAI GPT-4 / ChatGPT – for text interpretation, summarization, and insight generation
-•	Anthropic Claude – for comparative text generation and evaluation
-•	Google Gemini / Copilot – for alternate text generation and contextual reasoning
-•	Optional Output Analysis: JSON for structured storage, Pandas or Excel for tabular comparison
-________________________________________
-# Use Case
-Scenario:
-Develop a system that automatically interacts with multiple AI tools (e.g., ChatGPT, Claude, Gemini) to perform prompt-based text generation, compare their outputs, and extract actionable insights from those comparisons.
-Example Application:
-A programmer persona is tasked to design a simple “Online Bookstore Management System” using multiple AI tools. Each tool is prompted to generate code, documentation, and improvement suggestions.
-The experiment aims to:
-•	Automate API interaction with multiple AI tools.
-•	Collect and compare text/code outputs.
-•	Evaluate them using qualitative metrics.
-•	Summarize the most accurate or useful result.
-________________________________________
-# Objective
-To develop a comparative AI evaluation framework that:
-•	Interacts with multiple AI APIs via prompt automation.
-•	Collects responses to a uniform prompt (“Act as a programmer; design a bookstore system”).
-•	Compares quality, readability, and completeness.
-•	Generates structured insights and recommendations.
-________________________________________
-# Procedure
-Step 1: Define the Use Case
-A persona-based prompt (“Act as a programmer...”) is used to make each AI generate an application design.
-Goal: Identify which AI produces the most coherent, technically accurate, and complete response.
-Step 2: Set Up API Access
-Securely configure and authenticate APIs for each tool (OpenAI, Anthropic, Gemini, etc.) using environment variables.
-Each model will receive the same input prompt for fair comparison.
-Step 3: Prompt Execution
-For each AI tool:
-1.	Send the same standardized prompt.
-2.	Collect text or code output.
-3.	Record response metadata (tokens, latency, etc.).
-Step 4: Output Comparison
-Compare outputs based on:
-•	Accuracy (technical correctness)
-•	Completeness (all major features included)
-•	Readability (clarity, structure)
-•	Creativity (novel ideas, design choices)
-Step 5: Evaluation Method
-Use a simple rubric-based evaluation (e.g., 1–5 scale per metric).
-Optionally, compute basic similarity metrics like text overlap or keyword matching.
-Criteria	Description	Score (1–5)
-Accuracy	Technical correctness	4
-Completeness	Coverage of features	5
-Readability	Clarity and formatting	4
-Creativity	Originality	3
-Step 6: Generate Actionable Insights
-Summarize which tool performed best overall and note improvement areas.
-Output structured as:
-•	Best performing AI: (e.g., ChatGPT)
-•	Reasons: Concise, accurate, user-friendly responses.
-•	Recommendation: Use GPT for detailed technical explanations; use Claude for creative ideation.
-________________________________________
-# Output
-•	Structured table of AI responses and scores
-•	JSON or CSV summary of results
-•	Natural language report (e.g., “GPT provided the most structured code; Claude gave more innovative design suggestions.”)
-________________________________________
+# API URLs (example placeholders)
+api1 = "https://api.openweathermap.org/data/2.5/weather?q=London&appid=YOUR_API_KEY&units=metric"
+api2 = "https://api.weatherapi.com/v1/current.json?key=YOUR_API_KEY&q=London"
 
-# Result: The corresponding Prompt is executed successfully.
+# Fetch data from both APIs
+data1 = requests.get(api1).json()
+data2 = requests.get(api2).json()
+
+# Extract relevant details
+temp1 = data1['main']['temp']
+humidity1 = data1['main']['humidity']
+temp2 = data2['current']['temp_c']
+humidity2 = data2['current']['humidity']
+
+# Compare results
+print(f"OpenWeatherMap Temperature: {temp1}°C | Humidity: {humidity1}%")
+print(f"WeatherAPI Temperature: {temp2}°C | Humidity: {humidity2}%")
+
+# Generate insight
+if temp1 > temp2:
+    print("Insight: OpenWeatherMap shows slightly warmer data, possibly due to recent updates.")
+elif temp2 > temp1:
+    print("Insight: WeatherAPI reports a higher temperature; may indicate real-time precision.")
+else:
+    print("Insight: Both APIs report consistent temperature readings.")
+
+
+Step 4: Execution Across AI Tools
+•	The above code was generated using ChatGPT and cross-verified with Gemini and Copilot.
+•	Gemini provided a slightly more modular version using functions.
+•	Copilot offered inline documentation and variable suggestions automatically.
+________________________________________
+Step 5: Evaluation Criteria
+Each AI tool’s performance was compared using the following rubrics:
+Criterion	ChatGPT	Gemini	Copilot
+Code Accuracy	✅ Excellent	✅ Good	✅ Good
+Readability	✅ Excellent	✅ Excellent	✅ Excellent
+API Integration	✅ Supported	⚠️ Needs minor edits	✅ Supported
+Insight Explanation	✅ Detailed	✅ Moderate	⚠️ Minimal
+________________________________________
+Output:
+Example console output for London:
+OpenWeatherMap Temperature: 15.3°C | Humidity: 60%
+WeatherAPI Temperature: 14.8°C | Humidity: 62%
+Insight: OpenWeatherMap shows slightly warmer data, possibly due to recent updates.
+________________________________________
+Reflection:
+This experiment demonstrated the effectiveness of prompt-based code generation.
+•	ChatGPT generated clean, runnable code on the first attempt.
+•	Gemini produced modular but less optimized syntax.
+•	Copilot helped with inline completions but lacked contextual summaries.
+By refining prompts (adding constraints like “use comments,” “compare outputs numerically,” etc.), output quality improved.
+This proved that prompt clarity and specificity directly influence AI code quality and interpretability.
+________________________________________
+# Result:
+The corresponding prompts were executed successfully, and the AI-generated code produced accurate results with meaningful insights.
+
