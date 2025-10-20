@@ -67,11 +67,13 @@ Step 4: Execution Across AI Tools
 ________________________________________
 Step 5: Evaluation Criteria
 Each AI tool’s performance was compared using the following rubrics:
-Criterion	ChatGPT	Gemini	Copilot
-Code Accuracy	✅ Excellent	✅ Good	✅ Good
-Readability	✅ Excellent	✅ Excellent	✅ Excellent
-API Integration	✅ Supported	⚠️ Needs minor edits	✅ Supported
-Insight Explanation	✅ Detailed	✅ Moderate	⚠️ Minimal
+| **Criterion**       | **ChatGPT** | **Gemini**           | **Copilot** |
+| ------------------- | ----------- | -------------------- | ----------- |
+| Code Accuracy       | ✅ Excellent | ✅ Good               | ✅ Good      |
+| Readability         | ✅ Excellent | ✅ Excellent          | ✅ Excellent |
+| API Integration     | ✅ Supported | ⚠️ Needs minor edits | ✅ Supported |
+| Insight Explanation | ✅ Detailed  | ✅ Moderate           | ⚠️ Minimal  |
+
 ________________________________________
 Output:
 Example console output for London:
